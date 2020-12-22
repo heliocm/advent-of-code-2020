@@ -1,4 +1,4 @@
-target_input = open("input-test.txt" , "r")
+target_input = open("input.txt" , "r")
 data = target_input.read().split("\n")
 del data[-1]
 

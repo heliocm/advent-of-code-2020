@@ -1,4 +1,3 @@
-from itertools import cycle
 target_input = open("input.txt" , "r")
 data = target_input.read()
 cups = list(data)

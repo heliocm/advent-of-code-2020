@@ -1,4 +1,3 @@
-import time
 target_input = open("input.txt" , "r")
 data = target_input.read()
 list_cups = list(data)

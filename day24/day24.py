@@ -10,37 +10,42 @@ def find_tile(instructions):
     for direction in instructions:
         if direction == 'e':
             if change_line == 1:
-                y += 1
                 x += 1
+                y += 1
                 change_line = 0
             elif change_line == -1:
-                y -= 1
-                x += 1
+                x -= 1
+                y += 1
                 change_line = 0
             else:
-                x += 2
+                y += 2
+                change_line = 0
         elif direction == 'n':
             change_line = 1
         elif direction == 's':
             change_line = -1
         else:
             if change_line == 1:
-                y += 1
-                x -= 1
+                x += 1
+                y -= 1
                 change_line = 0
             elif change_line == -1:
-                y -= 1
                 x -= 1
+                y -= 1
                 change_line = 0
             else:
-                x -= 2
+                y -= 2
+                change_line = 0
     return(x, y)
 
 def paint(painted, tile):
     if tile not in painted:
         painted[tile] = "black"
     else:
-        painted[tile] = "white"
+        if painted[tile] == "white":
+            painted[tile] = "black"
+        else:
+            painted[tile] = "white"
 
 painted = {}
 for instructions in data:
@@ -48,7 +53,7 @@ for instructions in data:
     paint(painted, tile)
 
 total = 0
-for value in painted.values():
+for key, value in painted.items():
     if value == "black":
         total += 1
 
